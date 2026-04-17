@@ -1,0 +1,28 @@
+Pico GPIO to RGB Output Mapping (from PCB):
+
+RGB1_R: GP0  (Pico GPIO0)
+RGB1_G: GP1  (Pico GPIO1)
+RGB1_B: GP2  (Pico GPIO2)
+RGB2_R: GP3  (Pico GPIO3)
+RGB2_G: GP4  (Pico GPIO4)
+RGB2_B: GP5  (Pico GPIO5)
+RGB3_R: GP6  (Pico GPIO6)
+RGB3_G: GP7  (Pico GPIO7)
+RGB3_B: GP8  (Pico GPIO8)
+RGB4_R: GP9  (Pico GPIO9)
+RGB4_G: GP10 (Pico GPIO10)
+RGB4_B: GP11 (Pico GPIO11)
+
+Firmware defines (for main.c):
+#define RGB1_R 0
+#define RGB1_G 1
+#define RGB1_B 2
+#define RGB2_R 3
+#define RGB2_G 4
+#define RGB2_B 5
+#define RGB3_R 6
+#define RGB3_G 7
+#define RGB3_B 8
+#define RGB4_R 9
+#define RGB4_G 10
+#define RGB4_B 11

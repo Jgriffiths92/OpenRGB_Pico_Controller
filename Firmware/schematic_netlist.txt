@@ -1,0 +1,51 @@
+# Schematic Netlist for RGB_PICO_SATA_CONTROLLER (from PCB analysis)
+
+# Pico Header (J2) Connections
+J2.1  GP0
+J2.2  GP1
+J2.4  GP2
+J2.5  GP3
+J2.6  GP4
+J2.7  GP5
+J2.8  GP6
+J2.9  GP7
+J2.10 GP8
+J2.11 GP9
+J2.12 GP10
+J2.13 GP11
+
+# RGB Output Connectors
+# J4, J5, J6, J7 are assumed to be RGB1, RGB2, RGB3, RGB4
+# Each has pins for +12V_F, R, G, B
+
+# Example for J7 (RGB4):
+J7.1 +12V_F
+J7.2 RGB4_R
+J7.3 RGB4_G
+J7.4 RGB4_B
+
+# MOSFET Drivers (Q1-Q12, not all shown)
+# Example for Q1 (RGB1_R):
+Q1.1 GP0
+Q1.2 GND
+Q1.3 RGB1_R
+
+# Net Assignments
+net RGB1_R (connects: Q1.3, J4.2)
+net RGB1_G (connects: Q2.3, J4.3)
+net RGB1_B (connects: Q3.3, J4.4)
+net RGB2_R (connects: Q4.3, J5.2)
+net RGB2_G (connects: Q5.3, J5.3)
+net RGB2_B (connects: Q6.3, J5.4)
+net RGB3_R (connects: Q7.3, J6.2)
+net RGB3_G (connects: Q8.3, J6.3)
+net RGB3_B (connects: Q9.3, J6.4)
+net RGB4_R (connects: Q10.3, J7.2)
+net RGB4_G (connects: Q11.3, J7.3)
+net RGB4_B (connects: Q12.3, J7.4)
+
+# Power Nets
+net +12V_F (connects: J4.1, J5.1, J6.1, J7.1, F1.2)
+net GND (connects: all MOSFETs pad 2, Pico GND, D1.1, etc.)
+
+# This netlist can be used as a reference to manually reconstruct the schematic in KiCad.
