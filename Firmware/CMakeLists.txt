@@ -1,5 +1,9 @@
-cmake_minimum_required(VERSION 3.13)
-include(pico_sdk_import.cmake)
+# Set PICO_SDK_PATH to local pico-sdk if not already set
+if(NOT DEFINED PICO_SDK_PATH)
+    set(PICO_SDK_PATH "${CMAKE_CURRENT_LIST_DIR}/pico-sdk")
+endif()
+
+include(${PICO_SDK_PATH}/pico_sdk_init.cmake)
 
 project(OpenRGB_Pico_Controller C CXX ASM)
 
