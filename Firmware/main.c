@@ -1,23 +1,34 @@
+
+// Firmware for controlling standard (dumb) 12V RGB LED strips (common anode, 4-pin)
+// Each color channel is controlled via PWM on a dedicated GPIO pin.
+// Not for addressable LEDs (e.g., WS2812, SK6812).
+
 #include "pico/stdlib.h"
 #include "hardware/pwm.h"
 #include "openrgb_protocol.h"
 
 
 // Define GPIO pins for 4 RGB ports (change as needed for your board)
-#define RGB1_R 2
-#define RGB1_G 3
-#define RGB1_B 4
-#define RGB2_R 5
-#define RGB2_G 6
-#define RGB2_B 7
-#define RGB3_R 8
-#define RGB3_G 9
-#define RGB3_B 10
-#define RGB4_R 11
-#define RGB4_G 12
-#define RGB4_B 13
+// Each port supports one standard 12V RGB LED strip (R, G, B channels)
+#define RGB1_R 0
+#define RGB1_G 1
+#define RGB1_B 2
+#define RGB2_R 3
+#define RGB2_G 4
+#define RGB2_B 5
+#define RGB3_R 6
+#define RGB3_G 7
+#define RGB3_B 8
+#define RGB4_R 9
+#define RGB4_G 10
+#define RGB4_B 11
 
 void set_all_rgb(const uint8_t rgb[12]) {
+    // Set PWM level for each color channel of each port
+    // rgb[0..2]: Port 1 (R, G, B)
+    // rgb[3..5]: Port 2 (R, G, B)
+    // rgb[6..8]: Port 3 (R, G, B)
+    // rgb[9..11]: Port 4 (R, G, B)
     pwm_set_gpio_level(RGB1_R, rgb[0] * 257);
     pwm_set_gpio_level(RGB1_G, rgb[1] * 257);
     pwm_set_gpio_level(RGB1_B, rgb[2] * 257);
@@ -34,7 +45,7 @@ void set_all_rgb(const uint8_t rgb[12]) {
 
 int main() {
     stdio_init_all();
-    // Initialize PWM for all RGB pins
+    // Initialize PWM for all RGB pins (for dumb RGB strips)
     const uint RGB_PINS[12] = {
         RGB1_R, RGB1_G, RGB1_B,
         RGB2_R, RGB2_G, RGB2_B,
