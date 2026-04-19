@@ -62,8 +62,24 @@ The firmware implements the OpenRGB protocol, allowing the controller to be reco
 ## Contributing
 Contributions are welcome! Please open issues or pull requests for bug fixes, new features, or suggestions.
 
+
 ## License
-[Specify your license here, e.g., MIT, GPL, etc.]
+This project is licensed under the GNU General Public License v3.0 (GPLv3).
+
+Copyright (C) [2026] [Your Name or Organization]
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ---
 Feel free to contribute or open issues for suggestions and improvements.
