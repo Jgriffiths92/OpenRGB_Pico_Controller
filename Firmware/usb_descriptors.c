@@ -33,6 +33,30 @@ const char *string_desc_arr[] = {
 
 uint16_t _desc_str[32];
 
+// Minimal configuration descriptor for CDC (update for your needs)
+static const uint8_t desc_configuration[] = {
+    // Configuration Descriptor
+    0x09, 0x02, 0x20, 0x00, // bLength, bDescriptorType, wTotalLength (32 bytes)
+    0x01, 0x01, 0x00, 0x80, 0x32, // bNumInterfaces, bConfigurationValue, iConfiguration, bmAttributes, bMaxPower
+    // Interface Descriptor (CDC Control)
+    0x09, 0x04, 0x00, 0x00, 0x01, 0x02, 0x02, 0x01, 0x00,
+    // CDC Header Functional Descriptor
+    0x05, 0x24, 0x00, 0x10, 0x01,
+    // CDC ACM Functional Descriptor
+    0x04, 0x24, 0x02, 0x02,
+    // CDC Union Functional Descriptor
+    0x05, 0x24, 0x06, 0x00, 0x01,
+    // Endpoint Descriptor (Interrupt IN)
+    0x07, 0x05, 0x81, 0x03, 0x08, 0x00, 0x10
+    // (This is a minimal example, add more for full CDC-ACM)
+};
+
+// TinyUSB callback to return configuration descriptor
+uint8_t const * tud_descriptor_configuration_cb(uint8_t index) {
+    (void)index;
+    return desc_configuration;
+}
+
 // Invoked when GET DEVICE DESCRIPTOR request
 uint8_t const * tud_descriptor_device_cb(void) {
     return (uint8_t const *) &desc_device;

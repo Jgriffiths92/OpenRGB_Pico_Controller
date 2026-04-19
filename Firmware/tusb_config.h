@@ -8,6 +8,9 @@
 // Enable CDC (USB Serial)
 #define CFG_TUD_CDC 1
 
+#define CFG_TUD_CDC_RX_BUFSIZE 64
+#define CFG_TUD_CDC_TX_BUFSIZE 64
+
 // USB Device Descriptor
 #define USB_VID 0x1209 // pid.codes community VID (for open hardware projects)
 #define USB_PID 0x0001 // Custom PID
